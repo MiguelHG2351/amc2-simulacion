@@ -31,7 +31,7 @@ export default function App() {
             <input type="text" placeholder="0000 = NOP" />
           </label>
           <div className="alu col-span-2 gap-y-2 flex flex-col items-center">
-            <img className="w-full" src="/public/vector-blanco.svg" alt="" />
+            <img className="w-full" src="/vector-blanco.svg" alt="" />
             <label>
               <input type="text" placeholder="11" />
               <span className="ml-2">Z</span>
