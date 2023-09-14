@@ -1,7 +1,7 @@
 
 export default function App() {
   return (
-    <main className="h-screen flex items-center justify-center">
+    <main className="min-h-screen flex items-center justify-center py-4">
       <div className="flex gap-x-4">
         <section className="flex flex-col">
           <div className="border flex-1">
