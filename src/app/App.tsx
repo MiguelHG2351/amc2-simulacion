@@ -3,53 +3,58 @@ export default function App() {
   return (
     <main className="h-screen flex items-center justify-center">
       <div className="flex gap-x-4">
-        <section className="code">
-          <ul className="grid grid-cols-3">
-            {/* headers table */}
-            <li className="p-2 border border-collapse">
-              Adreess
-            </li>
-            <li className="p-2 border border-collapse">
-              Instruction
-            </li>
-            <li className="p-2 border border-collapse">
-              No se
-            </li>
-            {/* end headers table */}
+        <section className="flex flex-col">
+          <div className="border flex-1">
+            <ul className="grid grid-cols-3 flex-1">
+              {/* headers table */}
+              <li className="p-2 border border-collapse">
+                Adreess
+              </li>
+              <li className="p-2 border border-collapse">
+                Instruction
+              </li>
+              <li className="p-2 border border-collapse">
+                No se
+              </li>
+              {/* end headers table */}
 
-            <li className="p-2 border border-collapse">0001</li>
-            <li className="p-2 border border-collapse">PUSH B</li>
-            <li className="p-2 border border-collapse">0001</li>
-            {/* end rows table */}
-          </ul>
+              <li className="p-2 border border-collapse">0001</li>
+              <li className="p-2 border border-collapse">PUSH B</li>
+              <li className="p-2 border border-collapse">0001</li>
+              {/* end rows table */}
+            </ul>
+          </div>
+          <div className="flex flex-col border">
+            <button>Add instruction</button>
+          </div>
         </section>
-        <section className="program max-w-[450px] w-[90%]">
+        <section className="program max-w-[350px] w-[90%]">
           <h1 className="text-2xl font-bold mb-2">Simular de Pila - AMC2</h1>
           <form className="grid grid-cols-3 gap-y-4 gap-x-2">
-            <input className="col-span-3" type="text" placeholder="0000 = NOP" />
+            <input className="col-span-3 p-2" type="text" placeholder="0000 = NOP" />
             <label className="flex flex-col gap-y-2">
               <span>MAR</span>
-              <input type="text" placeholder="01013" />
+              <input type="text" placeholder="01013" className="p-2" />
             </label>
             <label className="flex flex-col gap-y-2">
               <span>MDR</span>
-              <input type="text" placeholder="0000 = NOP" />
+              <input type="text" placeholder="0000 = NOP" className="p-2" />
             </label>
             <label className="flex flex-col gap-y-2">
               <span>SP</span>
-              <input type="text" placeholder="0000 = NOP" />
+              <input type="text" placeholder="0000 = NOP" className="p-2" />
             </label>
             <label className="flex flex-col gap-y-2">
               <span>X</span>
-              <input type="text" placeholder="0000 = NOP" />
+              <input type="text" placeholder="0000 = NOP" className="p-2" />
             </label>
             <label className="flex flex-col gap-y-2">
               <span>Y</span>
-              <input type="text" placeholder="0000 = NOP" />
+              <input type="text" placeholder="0000 = NOP" className="p-2" />
             </label>
             <label className="flex flex-col gap-y-2">
-              <span>SP</span>
-              <input type="text" placeholder="0000 = NOP" />
+              <span>PC</span>
+              <input type="text" placeholder="0000 = NOP" className="p-2" />
             </label>
             <div className="alu col-span-2 gap-y-2 flex flex-col items-center">
               <img className="w-full" src="/vector-blanco.svg" alt="" />
@@ -61,39 +66,51 @@ export default function App() {
             <div className="col-span-1"></div>
           </form>
         </section>
-        <section className="flex flex-col">
-          <h2 className="text-center border">Datos</h2>
-          <ul className="grid grid-cols-3">
-            <li className="p-2 border border-collapse">
-              Adreess
-            </li>
-            <li className="p-2 border border-collapse">
-              Var
-            </li>
-            <li className="p-2 border border-collapse">
-              Value
-            </li>
+        <section className="flex gap-x-2">
+          {/* variables */}
+          <div className="flex-1 flex flex-col border">
+            <h2 className="text-center border">Datos</h2>
 
-            <li className="p-2 border border-collapse">0000</li>
-            <li className="p-2 border border-collapse">A</li>
-            <li className="p-2 border border-collapse">4</li>
-          </ul>
-          <h2 className="text-center border">Pila</h2>
-          <ul className="grid grid-cols-3">
-            <li className="p-2 border border-collapse">
-              Adreess
-            </li>
-            <li className="p-2 border border-collapse">
-              Var
-            </li>
-            <li className="p-2 border border-collapse">
-              Value
-            </li>
+            <div className="flex-1 border">
+              <ul className="grid grid-cols-3">
+                <li className="p-2 border border-collapse">
+                  Adreess
+                </li>
+                <li className="p-2 border border-collapse">
+                  Var
+                </li>
+                <li className="p-2 border border-collapse">
+                  Value
+                </li>
 
-            <li className="p-2 border border-collapse">0000</li>
-            <li className="p-2 border border-collapse">A</li>
-            <li className="p-2 border border-collapse">4</li>
-          </ul>
+                <li className="p-2 border border-collapse">0000</li>
+                <li className="p-2 border border-collapse">A</li>
+                <li className="p-2 border border-collapse">4</li>
+              </ul>
+            </div>
+            <div className="flex flex-col">
+              <button className="border">Add variable</button>
+            </div>
+          </div>
+          {/* Stack */}
+          <div className="flex-1 border">
+            <h2 className="text-center border">Pila</h2>
+            <ul className="grid grid-cols-3">
+              <li className="p-2 border border-collapse">
+                Adreess
+              </li>
+              <li className="p-2 border border-collapse">
+                Var
+              </li>
+              <li className="p-2 border border-collapse">
+                Value
+              </li>
+
+              <li className="p-2 border border-collapse">0000</li>
+              <li className="p-2 border border-collapse">A</li>
+              <li className="p-2 border border-collapse">4</li>
+            </ul>
+          </div>
         </section>
       </div>
     </main>
