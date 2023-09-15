@@ -8,7 +8,6 @@ type ModalProps = {
 }
 
 export const Modal = ({ isOpen, setIsOpen }: ModalProps) => {
-  console.log('re render')
 
 	return (
 		<AnimatePresence>
