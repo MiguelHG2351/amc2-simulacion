@@ -1,3 +1,7 @@
 import { atom } from "nanostores"
 
-export const commandList = atom<string[]>([])
+import { operationCode } from '../utils/constant'
+
+export type OperationCode = typeof operationCode
+
+export const operationList = atom< OperationCode >(operationCode)

@@ -1,5 +1,9 @@
+import { useState } from "react";
+import { Modal } from "../components/Modal";
 
 export default function App() {
+	const [isOpen, setIsOpen] = useState(false)
+  
   return (
     <main className="min-h-screen flex items-center justify-center py-4">
       <div className="flex gap-x-4">
@@ -25,7 +29,12 @@ export default function App() {
             </ul>
           </div>
           <div className="flex flex-col border">
-            <button>Add instruction</button>
+            <button
+              className="w-64 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              Open Modal
+            </button>
           </div>
         </section>
         <section className="program max-w-[350px] w-[90%]">
@@ -113,6 +122,7 @@ export default function App() {
           </div>
         </section>
       </div>
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
     </main>
   )
 }
