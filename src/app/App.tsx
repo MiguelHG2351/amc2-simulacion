@@ -1,46 +1,12 @@
-import { useState } from "react";
-import { Modal } from "../components/Modal/Modal";
-import InstructionList from "../components/InstructionList";
+import InstructionSection from "../components/InstructionSection"
 
 export default function App() {
-	const [isOpen, setIsOpen] = useState(false)
+  
   
   return (
     <main className="min-h-screen flex items-center justify-center py-4">
       <div className="flex gap-x-4">
-        <section className="flex flex-col">
-          <div className="border flex-1">
-            <ul className="grid grid-cols-3 flex-1">
-              {/* headers table */}
-              <li className="p-2 border border-collapse">
-                Adreess
-              </li>
-              <li className="p-2 border border-collapse">
-                Instruction
-              </li>
-              <li className="p-2 border border-collapse">
-                Code. Op
-              </li>
-              {/* end headers table */}
-
-              <li className="p-2 border border-collapse">0001</li>
-              <li className="p-2 border border-collapse">PUSH B</li>
-              <li className="p-2 border border-collapse">0001</li>
-              
-              <InstructionList />
-              
-              {/* end rows table */}
-            </ul>
-          </div>
-          <div className="flex flex-col border">
-            <button
-              className="border"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              Add instruction
-            </button>
-          </div>
-        </section>
+        <InstructionSection />
         <section className="program max-w-[350px] w-[90%]">
           <h1 className="text-2xl font-bold mb-2">Simular de Pila - AMC2</h1>
           <form className="grid grid-cols-3 gap-y-4 gap-x-2">
@@ -126,12 +92,7 @@ export default function App() {
           </div>
         </section>
       </div>
-      <Modal 
-        title="Add a new instruction"
-        description="In stack architecture, you can use PUSH to add to the stack and POP to remove the last added element."
-        iconName="add"
-        isOpen={isOpen}
-        setIsOpen={setIsOpen} />
+
     </main>
   )
 }
