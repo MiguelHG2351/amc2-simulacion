@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { useStore } from '@nanostores/react';
+import { $operationList } from '../../store';
 
 type InstructionModalProps = {
   isOpen: boolean;
@@ -7,6 +9,9 @@ type InstructionModalProps = {
 
 
 export const InstructionModal: React.FC<InstructionModalProps> = ({ setIsOpen }) => {
+  const operationList = useStore($operationList);
+  console.log(operationList);
+  
   return (
     <form className="bg-white px-4 py-3 sm:px-6">
       <div className="flex gap-x-4">
@@ -16,7 +21,11 @@ export const InstructionModal: React.FC<InstructionModalProps> = ({ setIsOpen })
           </span>
           <select name="name" className='w-full'>
             <option value="PUSH">PUSH</option>
-            <option value="POP">POP</option>
+            {
+              Object.keys(operationList).map((value, index) => (
+                <option value={value} key={index}>{value}</option>
+              ))
+            }
           </select>
         </label>
         <label className='block flex-1'>

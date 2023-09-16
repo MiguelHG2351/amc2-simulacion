@@ -4,7 +4,7 @@ import { operationCodes } from '../utils/constant'
 
 export type OperationCode = typeof operationCodes
 
-export const operationList = atom< OperationCode >(operationCodes)
+export const $operationList = atom< OperationCode >(operationCodes)
 
 
 
