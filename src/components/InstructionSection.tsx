@@ -1,9 +1,14 @@
 import InstructionList from "../components/InstructionList";
 import { Modal } from "../components/Modal/Modal";
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { InstructionModal } from "./Modal/InstructionModal";
 
 export default function InstructionSection() {
 	const [isOpen, setIsOpen] = useState(false)
+
+  const addinstruction = useCallback(() => {
+    setIsOpen(!isOpen)
+  }, [isOpen])
 
   return (
     <section className="flex flex-col">
@@ -43,7 +48,9 @@ export default function InstructionSection() {
         description="In stack architecture, you can use PUSH to add to the stack and POP to remove the last added element."
         iconName="add"
         isOpen={isOpen}
-        setIsOpen={setIsOpen} />
+        setIsOpen={setIsOpen}>
+          <InstructionModal isOpen={isOpen} setIsOpen={setIsOpen} />
+        </Modal>
     </section>
   )
 }
