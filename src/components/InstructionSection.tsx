@@ -1,14 +1,14 @@
 import InstructionList from "../components/InstructionList";
 import { Modal } from "../components/Modal/Modal";
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { InstructionModal } from "./Modal/InstructionModal";
 
 export default function InstructionSection() {
 	const [isOpen, setIsOpen] = useState(false)
 
-  const addinstruction = useCallback(() => {
-    setIsOpen(!isOpen)
-  }, [isOpen])
+  // const addinstruction = useCallback(() => {
+  //   setIsOpen(!isOpen)
+  // }, [isOpen])
 
   return (
     <section className="flex flex-col">
@@ -49,7 +49,7 @@ export default function InstructionSection() {
         iconName="add"
         isOpen={isOpen}
         setIsOpen={setIsOpen}>
-          <InstructionModal isOpen={isOpen} setIsOpen={setIsOpen} />
+          <InstructionModal setIsOpen={setIsOpen} />
         </Modal>
     </section>
   )

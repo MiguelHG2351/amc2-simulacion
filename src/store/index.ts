@@ -4,7 +4,13 @@ import { operationCodes } from '../utils/constant'
 
 export type OperationCode = typeof operationCodes
 export const $operationList = atom< OperationCode >(operationCodes)
-export const $variableList = atom< string[] >([])
+
+export type IVariable = {
+  name: string,
+  value: string,
+  address: number,
+}
+export const $variableList = atom< IVariable[] >([])
 
 
 export type OperationCodeValues = typeof operationCodes[keyof typeof operationCodes];
@@ -17,6 +23,10 @@ type IInstruction = {
 }
 export const $instructionList = atom< IInstruction[] >([])
 
+
+export const addVariable = (variable: IVariable) => {
+  $variableList.set([...$variableList.get(), variable])
+}
 
 export const addInstruction = (instruction: IInstruction) => {
   $instructionList.set([...$instructionList.get(), instruction])

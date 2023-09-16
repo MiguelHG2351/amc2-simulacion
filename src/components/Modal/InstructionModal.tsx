@@ -5,7 +5,6 @@ import type { OperationCodeInstruction } from '../../store';
 import { useForm } from 'react-hook-form'
 
 type InstructionModalProps = {
-  isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -45,7 +44,7 @@ export const InstructionModal: React.FC<InstructionModalProps> = ({ setIsOpen })
           </span>
           <select {...register('variable', {required: true})} className='w-full'>
             {variableList.map(variable => (
-              <option value="PUSH">A</option>
+              <option value={variable.address} key={variable.name}>{variable.name}</option>
             ))}
           </select>
         </label>
