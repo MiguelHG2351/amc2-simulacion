@@ -3,11 +3,14 @@ import { Dialog } from "@headlessui/react"
 import { motion, AnimatePresence } from "framer-motion"
 
 type ModalProps = {
+	title: string
+	description: string
+	iconName: string
 	isOpen: boolean
 	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const Modal = ({ isOpen, setIsOpen }: ModalProps) => {
+export const Modal = ({ isOpen, setIsOpen, title, description, iconName }: ModalProps) => {
 
 	return (
 		<AnimatePresence>
@@ -65,22 +68,10 @@ export const Modal = ({ isOpen, setIsOpen }: ModalProps) => {
 							>
 								<div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
 									<div className="sm:flex sm:items-start">
-										<div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-											<svg
-												className="h-6 w-6 text-red-600"
-												xmlns="http://www.w3.org/2000/svg"
-												fill="none"
-												viewBox="0 0 24 24"
-												stroke="currentColor"
-												aria-hidden="true"
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth="2"
-													d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-												/>
-											</svg>
+										<div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+											<span className="material-symbols-outlined text-green-600">
+												{ iconName }
+											</span>
 										</div>
 										<div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
 											<Dialog.Title
@@ -88,26 +79,35 @@ export const Modal = ({ isOpen, setIsOpen }: ModalProps) => {
 												className="text-lg leading-6 font-medium text-gray-900"
 												id="modal-headline"
 											>
-												Deactivate account
+												{ title }
 											</Dialog.Title>
 											<div className="mt-2">
 												<Dialog.Description
 													as="p"
 													className="text-sm text-gray-500"
 												>
-													Are you sure you want to deactivate your account? All
-													of your data will be permanently removed. This action
-													cannot be undone.
+													{description}
 												</Dialog.Description>
 											</div>
 										</div>
 									</div>
 								</div>
+								<form className="bg-white px-4 py-3 sm:px-6">
+									<label>
+										<span className="block text-sm font-medium text-gray-700">
+											Instruction
+										</span>
+										<select name="" id="">
+											<option value="PUSH">PUSH</option>
+											<option value="POP">POP</option>
+										</select>
+									</label>
+								</form>
 								<div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
 									<button
 										type="button"
 										tabIndex={0}
-										className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+										className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm"
 										onClick={() => setIsOpen(false)}
 									>
 										Deactivate

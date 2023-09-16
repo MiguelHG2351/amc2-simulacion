@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal } from "../components/Modal";
+import { Modal } from "../components/Modal/Modal";
 import InstructionList from "../components/InstructionList";
 
 export default function App() {
@@ -126,7 +126,12 @@ export default function App() {
           </div>
         </section>
       </div>
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Modal 
+        title="Add a new instruction"
+        description="In stack architecture, you can use PUSH to add to the stack and POP to remove the last added element."
+        iconName="add"
+        isOpen={isOpen}
+        setIsOpen={setIsOpen} />
     </main>
   )
 }

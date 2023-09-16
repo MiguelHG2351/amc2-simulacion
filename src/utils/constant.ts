@@ -3,4 +3,6 @@ export const operationCodes = {
   "SUB": "00000110",
   "MUL": "00001011",
   "DIV": "00001100",
+  "PUSH": "00001101",
+  "POP": "00001110",
 }
