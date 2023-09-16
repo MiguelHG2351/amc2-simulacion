@@ -1,4 +1,4 @@
-export const operationCode = {
+export const operationCodes = {
   "ADD": "00000101",
   "SUB": "00000110",
   "MUL": "00001011",

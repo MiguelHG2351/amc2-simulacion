@@ -1,22 +1,22 @@
 import { atom } from "nanostores"
 
-import { operationCode } from '../utils/constant'
+import { operationCodes } from '../utils/constant'
 
-export type OperationCode = typeof operationCode
+export type OperationCode = typeof operationCodes
 
-export const operationList = atom< OperationCode >(operationCode)
+export const operationList = atom< OperationCode >(operationCodes)
 
 
 
-type OperationCodeValues = typeof operationCode[keyof typeof operationCode];
-type OperationCodeInstruction = keyof typeof operationCode
-type OperationCodeList = {
+type OperationCodeValues = typeof operationCodes[keyof typeof operationCodes];
+type OperationCodeInstruction = keyof typeof operationCodes;
+type IInstruction = {
   address: string,
   instruction: OperationCodeInstruction,
-  operand: OperationCodeValues,
+  instructionCode: OperationCodeValues,
 }
-export const $operationCodeList = atom< OperationCodeList[] >([])
+export const $instructionList = atom< IInstruction[] >([])
 
-export const addOperationCode = (operationCode: OperationCodeList) => {
-  $operationCodeList.set([...$operationCodeList.get(), operationCode])
+export const addInstruction = (instruction: IInstruction) => {
+  $instructionList.set([...$instructionList.get(), instruction])
 }

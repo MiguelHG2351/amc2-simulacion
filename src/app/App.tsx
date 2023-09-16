@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal } from "../components/Modal";
+import InstructionList from "../components/InstructionList";
 
 export default function App() {
 	const [isOpen, setIsOpen] = useState(false)
@@ -18,13 +19,16 @@ export default function App() {
                 Instruction
               </li>
               <li className="p-2 border border-collapse">
-                No se
+                Code. Op
               </li>
               {/* end headers table */}
 
               <li className="p-2 border border-collapse">0001</li>
               <li className="p-2 border border-collapse">PUSH B</li>
               <li className="p-2 border border-collapse">0001</li>
+              
+              <InstructionList />
+              
               {/* end rows table */}
             </ul>
           </div>
